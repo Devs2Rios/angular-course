@@ -6,5 +6,10 @@
   (keypress)="onKeyUp(currentInput.value)"
   #currentInput
 />
-<app-card [pangram]="pangrams[0]"></app-card>
+<app-card
+  *ngFor="let pangram of pangrams; index as i; first as isFirst"
+  [firstEl]="isFirst"
+  [pangramObj]="{pangram, pangramIndex: i, pangrams}"
+  (click)="changePangram($event)"
+></app-card>
 <router-outlet></router-outlet>

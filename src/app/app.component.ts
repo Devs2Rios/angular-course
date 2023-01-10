@@ -15,4 +15,8 @@ export class AppComponent {
   onKeyUp(str: string): void {
     this.data.title = str;
   }
+
+  changePangram(event: Event): void {
+    console.log(event.target);
+  }
 }

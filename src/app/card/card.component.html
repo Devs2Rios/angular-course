@@ -1,1 +1,4 @@
-<p>{{pangram}}</p>
+<p [class.is-first]="firstEl">{{ pangramObj.pangram }}</p>
+<button [class.is-first]="firstEl" (click)="onPangramClick()">
+  {{ pangramObj.pangramIndex }}
+</button>
