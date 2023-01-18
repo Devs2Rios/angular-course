@@ -12,4 +12,25 @@
   [pangramObj]="{pangram, pangramIndex: i, pangrams}"
   (click)="changePangram($event)"
 ></app-card>
+<ng-container *ngFor="let categorie of categories">
+  <ng-container [ngSwitch]="categorie.name">
+    <p *ngSwitchCase="'blue'" [ngStyle]="setColor(categorie.name)">
+      {{ categorie.name }}
+    </p>
+    <p *ngSwitchCase="'red'" [ngStyle]="setColor(categorie.name)">
+      {{ categorie.name }}
+    </p>
+    <p *ngSwitchDefault>{{ categorie.name }}</p>
+  </ng-container>
+</ng-container>
+<p>{{ now | date : "dd/MM/YYYY" }}</p>
+<p>{{ title | lowercase }}</p>
+<p>{{ title | titlecase }}</p>
+<p>{{ price | number : "4.4-10" }}</p>
+<p>{{ price | currency }}</p>
+<p>{{ price | currency : "EUR" }}</p>
+<p>{{ price | percent }}</p>
+<ng-container *ngFor="let pair of categories | keyvalue">
+  <p>{{ pair.key }} {{ pair.value | json }}</p>
+</ng-container>
 <router-outlet></router-outlet>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 // Data
-import { PANGRAMS } from '../content/db-data';
+import { PANGRAMS, CATEGORIES } from '../content/db-data';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,11 @@ import { PANGRAMS } from '../content/db-data';
 })
 export class AppComponent {
   data = { title: 'EATangular' };
-
+  title = 'AMEGA';
+  price = 10;
   pangrams = [...PANGRAMS];
+  categories = [...CATEGORIES];
+  now = new Date();
 
   onKeyUp(str: string): void {
     this.data.title = str;
@@ -18,5 +21,9 @@ export class AppComponent {
 
   changePangram(event: Event): void {
     console.log(event.target);
+  }
+
+  setColor(color: string) {
+    return { color: color };
   }
 }
